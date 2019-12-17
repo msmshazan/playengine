@@ -7,7 +7,6 @@ uniform vec4 tex_sizeinv;
 
 void main()
 {
-        vec2 unitpos = vec2(gl_VertexID >> 1 ,gl_VertexID & 1);
         a_position.xy *= u_viewTexel.xy;
 	a_position.xy *= 2;
 	a_position.xy -= vec2(1,1);
