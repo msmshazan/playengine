@@ -4,9 +4,12 @@ $input v_texcoord0
 
 SAMPLER2D(s_texture,  0);
 
+uniform vec4 tile_size;
+uniform vec4 tex_sizeinv;
+
 void main()
 {
-        vec2 uv = floor(v_texcoord0) + 0.5;
-	uv += clamp((1.0 - fract(v_texcoord0)) , 0.0, 1.0);
-	gl_FragColor =  texture2D( s_texture, v_texcoord0);
+        
+        v_texcoord0 = v_texcoord0 * tex_sizeinv.xy;
+        gl_FragColor =  texture2D( s_texture, v_texcoord0);
 }
